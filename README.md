@@ -38,3 +38,17 @@ php artisan email:upload-attachments
 ```bash
 php artisan test
 ```
+
+**Ссылки**:
+
+PhpMyAdmin:
+
+```code
+http://localhost:8081
+```
+
+Mailpit:
+
+```
+http://localhost:8025
+```
