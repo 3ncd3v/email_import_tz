@@ -1,0 +1,6 @@
+*
+!private/
+!public/
+!.gitignore
+!test_products_100k.zip
+!test_products_1kk.zip

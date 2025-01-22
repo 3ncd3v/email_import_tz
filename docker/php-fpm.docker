@@ -1,0 +1,19 @@
+FROM php:8-fpm
+
+RUN apt-get update && apt-get install -y libmcrypt-dev mariadb-client \
+    libzip-dev \
+    zip \
+    unzip \
+    && docker-php-ext-install zip pdo_mysql
+
+RUN docker-php-ext-configure exif
+RUN docker-php-ext-install exif
+RUN docker-php-ext-enable exif
+
+COPY /docker/php/php.ini /usr/local/etc/php/
+
+COPY --from=composer:latest /usr/bin/composer /usr/local/bin/composer
+
+COPY /docker/php/conf.d/* /usr/local/etc/php/conf.d
+
+WORKDIR /var/www
